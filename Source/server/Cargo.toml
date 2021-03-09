@@ -1,0 +1,10 @@
+[package]
+name = "server"
+version = "0.0.0"
+authors = ["woksin <sindrewilting@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+event-store = { path = "../event-store" }
