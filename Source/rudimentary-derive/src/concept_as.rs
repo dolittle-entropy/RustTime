@@ -42,11 +42,9 @@ fn has_value_field(data: &Data) -> bool {
 // returns the path name of the type used for the value field.
 pub fn value_type_name(data: &Data) -> Option<Ident> {
     if let Data::Struct(st) = data {
-        let result = st.fields.iter().find(|f| {
-            match f.ident.as_ref() {
-                Some(ident) => ident.to_string().contains("value"),
-                None => false
-            }
+        let result = st.fields.iter().find(|f| match f.ident.as_ref() {
+            Some(ident) => ident.to_string().contains("value"),
+            None => false,
         });
 
         match &result.unwrap().ty {

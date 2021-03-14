@@ -73,7 +73,7 @@ pub fn derive_validated_concept_setup(input: TokenStream) -> TokenStream {
                 write!(f, "{}", &self.value)
             }
         }
-        
+
         impl std::fmt::Debug for #concept_name {
             fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
                 f.debug_struct(stringify!(#concept_name))
