@@ -10,7 +10,7 @@ pub struct Version {
 }
 
 impl Version {
-    fn NOT_SET() -> Version {
+    pub fn not_set() -> Version {
         Version {
             major: 0,
             minor: 0,

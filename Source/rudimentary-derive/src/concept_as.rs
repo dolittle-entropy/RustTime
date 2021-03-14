@@ -43,8 +43,10 @@ fn has_value_field(data: &Data) -> bool {
 pub fn value_type_name(data: &Data) -> Option<Ident> {
     if let Data::Struct(st) = data {
         let result = st.fields.iter().find(|f| {
-            let ident = f.clone().ident.clone().unwrap();
-            ident.to_string().contains("value")
+            match f.ident.as_ref() {
+                Some(ident) => ident.to_string().contains("value"),
+                None => false
+            }
         });
 
         match &result.unwrap().ty {

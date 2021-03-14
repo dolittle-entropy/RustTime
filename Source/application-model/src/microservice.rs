@@ -17,10 +17,10 @@ impl Concept<Uuid> for MicroserviceId {
 }
 
 impl MicroserviceId {
-    fn create() -> MicroserviceId {
+    pub fn create() -> MicroserviceId {
         MicroserviceId::new(Uuid::new_v4())
     }
-    fn NOT_SET() -> MicroserviceId {
+    pub fn not_set() -> MicroserviceId {
         MicroserviceId::new(Uuid::parse_str("4a5d2bc3-543f-459a-ab0b-e8e924093260").unwrap())
     }
 }

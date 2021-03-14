@@ -17,7 +17,7 @@ impl Concept<Uuid> for EventSourceId {
 }
 
 impl EventSourceId {
-    fn create() -> EventSourceId {
+    pub fn create() -> EventSourceId {
         EventSourceId::new(Uuid::new_v4())
     }
 }
