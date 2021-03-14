@@ -21,7 +21,6 @@ Dolittle is a decentralized, distributed, event-driven microservice platform bui
 
 The Runtime is the backend of our system and manages connections from the SDKs and Runtimes to the Event Store. It's called the Runtime as it's what runs and powers the SDK's to do their job.
 
-
 # Get Started
 - Try our [tutorial](https://dolittle.io/docs/tutorials/)
 - Check out our [documentation](https://dolittle.io)
@@ -36,7 +35,7 @@ The Runtime is the backend of our system and manages connections from the SDKs a
 
 To install Rust simply follow this [guide](https://www.rust-lang.org/tools/install)
 
-I highly recommend to use [vscode](https://code.visualstudio.com) as the editor running rust-analyzer extension.
+I highly recommend to use [vscode](https://code.visualstudio.com) as the editor running *rust-analyzer* extension.
 
 ## Building
 ```shell
