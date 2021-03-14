@@ -3,7 +3,9 @@ use rudimentary_derive::ConceptSetup;
 use uuid::Uuid;
 
 #[derive(ConceptSetup)]
-pub struct MicroserviceId { value: Uuid }
+pub struct MicroserviceId {
+    value: Uuid,
+}
 
 impl Concept<Uuid> for MicroserviceId {
     fn get_value(&self) -> Uuid {
@@ -24,7 +26,9 @@ impl MicroserviceId {
 }
 
 #[derive(ConceptSetup)]
-pub struct MicroserviceName { value: String }
+pub struct MicroserviceName {
+    value: String,
+}
 
 impl Concept<String> for MicroserviceName {
     fn get_value(&self) -> String {

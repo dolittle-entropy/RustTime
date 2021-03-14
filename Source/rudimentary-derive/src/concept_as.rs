@@ -1,6 +1,6 @@
 // From https://github.com/PrismaPhonic/domain_patterns/blob/master/domain_derive/src/value_object.rs
-use syn::{DeriveInput, Data, Error};
 use syn::Ident;
+use syn::{Data, DeriveInput, Error};
 
 /// `precondition` checks all invariants for the Struct structure that the macro is being applied to.
 /// The following conditions must be true:
@@ -16,25 +16,25 @@ fn check_value_field(input: &DeriveInput) -> Result<(), syn::Error> {
     }
 
     let input_span = input.ident.span();
-    Err(Error::new(input_span, "expected a struct with a single field named `value`."))
+    Err(Error::new(
+        input_span,
+        "expected a struct with a single field named `value`.",
+    ))
 }
 
 fn has_one_field(data: &Data) -> bool {
     match data {
-        Data::Struct(st) => {
-            st.fields.iter().len() == 1
-        },
+        Data::Struct(st) => st.fields.iter().len() == 1,
         _ => false,
     }
 }
 
 fn has_value_field(data: &Data) -> bool {
     match data {
-        Data::Struct(st) => {
-            st.fields.iter().any(|f| {
-                f.clone().ident.unwrap() == "value"
-            })
-        },
+        Data::Struct(st) => st
+            .fields
+            .iter()
+            .any(|f| f.clone().ident.unwrap() == "value"),
         _ => false,
     }
 }
@@ -51,7 +51,7 @@ pub fn value_type_name(data: &Data) -> Option<Ident> {
             syn::Type::Path(type_path) => {
                 let path_name = type_path.path.segments.iter().next().unwrap().ident.clone();
                 return Some(path_name);
-            },
+            }
             _ => return None,
         }
     }

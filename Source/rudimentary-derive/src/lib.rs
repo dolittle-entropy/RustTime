@@ -1,9 +1,9 @@
 // Taken from https://github.com/PrismaPhonic/domain_patterns/master/domain_derive/src/lib.rs
 
 mod concept_as;
-use syn::parse_macro_input;
-use quote::quote;
 use proc_macro::TokenStream;
+use quote::quote;
+use syn::parse_macro_input;
 use syn::DeriveInput;
 
 const FAILED_PRECONDITION: &str = "ConceptSetup macro failed preconditions";

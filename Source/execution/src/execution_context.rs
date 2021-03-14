@@ -1,14 +1,16 @@
-use std::{fmt, fmt::Formatter, fmt::Display};
+use std::{fmt, fmt::Display, fmt::Formatter};
 
-pub use rudimentary::*;
 use application_model::*;
-use security::*;
-use versioning::*;
+pub use rudimentary::*;
 use rudimentary_derive::ConceptSetup;
+use security::*;
 use uuid::Uuid;
+use versioning::*;
 
 #[derive(ConceptSetup)]
-pub struct CorrelationId { value: Uuid }
+pub struct CorrelationId {
+    value: Uuid,
+}
 
 impl Concept<Uuid> for CorrelationId {
     fn get_value(&self) -> Uuid {
@@ -20,7 +22,9 @@ impl Concept<Uuid> for CorrelationId {
 }
 
 #[derive(ConceptSetup)]
-pub struct Environment { value: String }
+pub struct Environment {
+    value: String,
+}
 
 impl Concept<String> for Environment {
     fn get_value(&self) -> String {
@@ -38,7 +42,7 @@ pub struct ExecutionContext {
     version: Version,
     environment: Environment,
     correlation: CorrelationId,
-    claims: Vec<Claim>
+    claims: Vec<Claim>,
 }
 
 impl Display for ExecutionContext {

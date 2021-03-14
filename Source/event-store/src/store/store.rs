@@ -1,11 +1,5 @@
-trait EventStore: EventCommitter + CommittedEventFetcher {
-    
-}
+trait EventStore: EventCommitter + CommittedEventFetcher {}
 
-trait EventCommitter {
-    
-}
+trait EventCommitter {}
 
-trait CommittedEventFetcher {
-
-}
+trait CommittedEventFetcher {}

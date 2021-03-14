@@ -3,7 +3,9 @@ use rudimentary_derive::ConceptSetup;
 use uuid::Uuid;
 
 #[derive(ConceptSetup)]
-pub struct TenantId { value: Uuid }
+pub struct TenantId {
+    value: Uuid,
+}
 
 impl Concept<Uuid> for TenantId {
     fn get_value(&self) -> Uuid {
@@ -15,7 +17,6 @@ impl Concept<Uuid> for TenantId {
 }
 
 impl TenantId {
-    
     fn UNKNOWN() -> TenantId {
         TenantId::new(Uuid::parse_str("762a4bd5-2ee8-4d33-af06-95806fb73f4e").unwrap())
     }
