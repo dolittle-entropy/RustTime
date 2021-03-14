@@ -1,0 +1,10 @@
+[workspace]
+members = [
+    "Source/server",
+    "Source/application-model",
+    "Source/artifacts",
+    "Source/event-store",
+    "Source/execution",
+    "Source/rudimentary",
+    "Source/rudimentary-derive",
+]
