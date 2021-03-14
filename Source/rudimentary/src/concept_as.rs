@@ -1,8 +1,8 @@
 // From https://github.com/PrismaPhonic/domain_patterns/blob/master/domain_derive/src/value_object.rs
 pub use std::convert::{From, TryFrom};
-pub use std::fmt::Display;
+pub use std::fmt::{Display, Debug};
 
-pub trait Concept<TValue>: Clone + PartialEq + Display {
+pub trait Concept<TValue>: Clone + PartialEq + Display + Debug {
     fn get_value(&self) -> TValue;
     fn borrow_value(&self) -> &TValue;
 }

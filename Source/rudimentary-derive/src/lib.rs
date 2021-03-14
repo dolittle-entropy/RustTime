@@ -20,7 +20,15 @@ pub fn derive_concept_setup(input: TokenStream) -> TokenStream {
     let expanded = quote! {
         impl std::fmt::Display for #concept_name {
             fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-                write!(f, "{}", self.value)
+                write!(f, "{}", &self.value)
+            }
+        }
+
+        impl std::fmt::Debug for #concept_name {
+            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+                f.debug_struct(stringify!(#concept_name))
+                 .field("value", &self.value)
+                 .finish()
             }
         }
 
@@ -62,7 +70,15 @@ pub fn derive_validated_concept_setup(input: TokenStream) -> TokenStream {
     let expanded = quote! {
         impl std::fmt::Display for #concept_name {
             fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-                write!(f, "{}", self.value)
+                write!(f, "{}", &self.value)
+            }
+        }
+        
+        impl std::fmt::Debug for #concept_name {
+            fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+                f.debug_struct(stringify!(#concept_name))
+                 .field("value", &self.value)
+                 .finish()
             }
         }
 
