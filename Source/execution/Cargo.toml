@@ -10,4 +10,6 @@ edition = "2018"
 application-model = { path = "../application-model" }
 rudimentary = { path = "../rudimentary" }
 rudimentary-derive = { path = "../rudimentary-derive" }
+security = { path = "../security" }
+versioning = { path = "../versioning" }
 uuid = { version = "0.8.2", features = ["serde", "v4"]  }

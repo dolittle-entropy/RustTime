@@ -7,4 +7,6 @@ members = [
     "Source/execution",
     "Source/rudimentary",
     "Source/rudimentary-derive",
+    "Source/security",
+    "Source/versioning"
 ]
