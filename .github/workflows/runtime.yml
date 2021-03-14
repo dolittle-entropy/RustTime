@@ -3,7 +3,7 @@ name: Runtime
 on:
   push:
     branches:
-    - 'Source'
+    - 'Source/**'
     - 'Cargo.toml'
 
 jobs:
