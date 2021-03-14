@@ -32,26 +32,18 @@ pub fn derive_concept_setup(input: TokenStream) -> TokenStream {
 
         impl std::clone::Clone for #concept_name {
             fn clone(&self) -> Self {
-                #concept_name {
-                    value: self.value.clone()
-                }
+                #concept_name {value: self.get_value()}
             }
         }
 
         impl std::convert::From<#value_type_name> for #concept_name {
-
             fn from(value: #value_type_name) -> Self {
                 #concept_name {value}
             }
         }
-        impl rudimentary::ConceptBase<#value_type_name> for #concept_name {
-            fn value(&self) -> #value_type_name {
-                self.value
-            }
-        }
         impl rudimentary::ConceptAs<#value_type_name> for #concept_name {
             fn new(value: #value_type_name) -> Self {
-                Self::from(value)
+                #concept_name {value}
             }
         }
     };
@@ -83,7 +75,7 @@ pub fn derive_validated_concept_setup(input: TokenStream) -> TokenStream {
         impl std::clone::Clone for #concept_name {
             fn clone(&self) -> Self {
                 #concept_name {
-                    value: self.value.clone()
+                    value: self.get_value()
                 }
             }
         }
@@ -97,10 +89,9 @@ pub fn derive_validated_concept_setup(input: TokenStream) -> TokenStream {
                 Ok(#concept_name {value})
             }
         }
-
-        impl rudimentary::ConceptBase<#value_type_name> for #concept_name {
-            fn value(&self) -> #value_type_name {
-                self.value
+        impl rudimentary::ValidatedConceptAs<#value_type_name> for #concept_name {
+            fn new(value: #value_type_name) -> Result<Self, Self::Error> {
+                Self::try_from(value)
             }
         }
     };

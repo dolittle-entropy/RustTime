@@ -1,15 +1,14 @@
 use rudimentary_derive::ConceptSetup;
-pub use rudimentary::*;
+use rudimentary::Concept;
 
 #[derive(ConceptSetup)]
 pub struct AggregateRootVersion { value: u32 }
 
-impl ConceptAs<u32> for AggregateRootVersion {
-    fn validate(_value: &u32) -> Result<(), &'static str> {
-        Ok(())
+impl Concept<u32> for AggregateRootVersion {
+    fn get_value(&self) -> u32 {
+        self.value
     }
-
-    fn value(&self) -> u32 {
-        return self.value;
+    fn borrow_value(&self) -> &u32 {
+        &self.value
     }
 }

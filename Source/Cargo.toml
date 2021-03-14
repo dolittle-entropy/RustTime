@@ -1,7 +1,10 @@
 [workspace]
 members = [
     "server",
+    "application-model",
+    "artifacts",
     "event-store",
+    "execution",
     "rudimentary",
     "rudimentary-derive",
 ]
