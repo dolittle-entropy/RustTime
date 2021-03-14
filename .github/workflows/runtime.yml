@@ -69,7 +69,6 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: clippy
-          args: -- -D warnings
   
   # build-prod-docker-image:
   #   name: Build Production Docker Image
