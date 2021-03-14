@@ -3,6 +3,8 @@ name: Runtime
 on:
   push:
     branches:
+    - '**'
+    paths:
     - 'Source/**'
     - 'Cargo.toml'
 
